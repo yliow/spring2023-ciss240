@@ -18,11 +18,25 @@ int main()
     //     std::cout << "First is bigger\n";
     // }
 
-    int x = 0;
-    std::cin >> x;
-    if (x > 0);
-        std::cout << "spam!" << std::endl;
-    std::cout << "eggs" << std::endl;
+    // int x = 0;
+    // std::cin >> x;
+    // if (x > 0)
+    //     ;
+    // std::cout << "spam!" << std::endl;
+    // std::cout << "eggs" << std::endl;
+    // ;
+    // ;
+    // ;
+    // ;
+    // ;
 
+    std::cout << "What is the product of 97 and 94? ";
+    int guess;
+    std::cin >> guess;
+    if (guess == 9118)
+    {
+        std::cout << "You smart dawg!\n";
+    }
+    
     return 0;
 }
