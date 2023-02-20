@@ -24,7 +24,7 @@ int main()
     }
     std::cout << x0 << ' ' << x1 << ' ' << x2 << ' ' << x3  << '\n';
 
-    std::cout << "PASS 1\n";
+    std::cout << "PASS 2\n";
     if (x1 < x0)
     {
         t = x0; x0 = x1; x1 = t;
@@ -33,6 +33,12 @@ int main()
     if (x2 < x1)
     {
         t = x1; x1 = x2; x2 = t;
+    }
+    std::cout << x0 << ' ' << x1 << ' ' << x2 << ' ' << x3 << '\n';
+    std::cout << "PASS 3\n";
+    if (x1 < x0)
+    {
+        t = x0; x0 = x1; x1 = t;
     }
     std::cout << x0 << ' ' << x1 << ' ' << x2 << ' ' << x3 << '\n';
 
