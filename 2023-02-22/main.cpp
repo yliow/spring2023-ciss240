@@ -35,9 +35,30 @@ int main()
                 std::cout << "You smart dawg!!!\n";        
                 score = 1;
             }
+            else
+            {
+                std::cout << "The correct answer is " << answer << '\n';
+                score = 0;
+            }
+        }
+        else
+        {
+            std::cout << "Your answer is too high. Try something lower.\n";
+            std::cout << "What is the product of " << x << " and " << y << "? ";
+            std::cin >> guess;
+            if (guess == answer)
+            {
+                std::cout << "You smart dawg!!!\n";
+                score = 1;
+            }
+            else
+            {
+                std::cout << "The correct answer is " << answer << '\n';
+                score = 0;
+            }
         }
     }
-    std::cout << "2\n";
+    std::cout << "Score: " << score << '\n';
     
     return 0;
 }
