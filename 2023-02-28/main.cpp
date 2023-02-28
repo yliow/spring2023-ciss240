@@ -55,7 +55,7 @@ int main()
     std::cout << "end of game!!!\n";
     if (!sabrina_saved)
     {
-        std::cout << "you did not save princess sabrina!!!\n";
+        std::cout << "you did not save princess sabrina!!! she died!!!\n";
     }
     return 0;
 }
