@@ -21,6 +21,7 @@ int main()
     const int SHACK = 2;
     
     int my_pos = BEGINNING_OF_ROAD;
+    bool sabrina_saved = false;
     char input;
 
     for (int i = 0; i < 11; i = i + 1)
@@ -52,5 +53,9 @@ int main()
         }
     }
     std::cout << "end of game!!!\n";
+    if (!sabrina_saved)
+    {
+        std::cout << "you did not save princess sabrina!!!\n";
+    }
     return 0;
 }
