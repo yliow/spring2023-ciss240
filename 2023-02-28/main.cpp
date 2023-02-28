@@ -23,17 +23,21 @@ int main()
     int my_pos = BEGINNING_OF_ROAD;
     char input;
 
-    for (int i = 0; i < 3; i = i + 1)
+    for (int i = 0; i < 11; i = i + 1)
     {
         std::cout << "i:" << i << '\n';
         if (my_pos == BEGINNING_OF_ROAD)
         {
             std::cout << "You are at the beginning of the road\n";
-            std::cout << "Options: E (go east), ....\n";
+            std::cout << "Options: q (quit), E (go east), ....\n";
             std::cin >> input;
             if (input == 'E')
             {
                 my_pos = SHACK;
+            }
+            else if (input == 'q')
+            {
+                break;
             }
         }
         else if (my_pos == SHACK)
@@ -43,10 +47,10 @@ int main()
             std::cin >> input;
             if (input == 'W')
             {
-                my_pos = BEGINNING_OF_THE_ROAD;
+                my_pos = BEGINNING_OF_ROAD;
             }
         }
-        std::cout << my_pos << '\n';
     }
+    std::cout << "end of game!!!\n";
     return 0;
 }
