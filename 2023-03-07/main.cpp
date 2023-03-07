@@ -3,6 +3,7 @@
 
 int main()
 {
+    // area example
     // double a, b;  // area from x = a to x = b
     // int n;        // number of rectangles used
     // std::cin >> a >> b >> n;
