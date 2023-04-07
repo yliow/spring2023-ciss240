@@ -25,6 +25,16 @@ void rand_array(int x[1000000], int n)
     return;
 }
 
+int dist(int x[1000000], int n, int i) // i = home of party
+{
+    int s = 0;
+    for (int j = 0; j < n; ++j)
+    {
+        s += abs(x[j] - x[i]);
+    }
+    return s;
+}
+
 int main()
 {
     // //print_int(42);
