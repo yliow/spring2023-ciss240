@@ -31,28 +31,20 @@ int main()
     print_array(x, n);
 
     // bubblesort
-    for (int i = 0; i <= n - 2; ++i)
+    for (int j = n - 2; j >= 0; --j)
     {
-        if (x[i] > x[i + 1])
+        for (int i = 0; i <= j; ++i)
         {
-            int t = x[i];
-            x[i] = x[i + 1];
-            x[i + 1] = t;
+            if (x[i] > x[i + 1])
+            {
+                int t = x[i];
+                x[i] = x[i + 1];
+                x[i + 1] = t;
+            }
+            std::cout << i << ": ";
+            print_array(x, n);
         }
-        std::cout << i << ": ";
-        print_array(x, n);
-    }
-    std::cout << '\n';
-    for (int i = 0; i <= n - 3; ++i)
-    {
-        if (x[i] > x[i + 1])
-        {
-            int t = x[i];
-            x[i] = x[i + 1];
-            x[i + 1] = t;
-        }
-        std::cout << i << ": ";
-        print_array(x, n);
+        std::cout << '\n';
     }
 
     return 0;
