@@ -58,6 +58,19 @@ int main()
 
     rand_array(x, n);
     print_array(x, n);
-    
+
+    int best_index = 0;
+    int best_dist = dist(x, n, 0);
+    for (int i = 1; i < n; ++i)
+    {
+        int s = dist(x, n, i);
+        if (s < best_dist)
+        {
+            best_index = i;
+            best_dist = s;
+        }
+        std::cout << best_index << ' ' << best_dist << '\n';
+    }
+    std::cout << best_index << ' ' << best_dist << '\n';
     return 0;
 }
