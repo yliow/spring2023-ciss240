@@ -7,7 +7,7 @@ void rand_array(int x[], int n)
 {
     for (int i = 0; i < n; ++i)
     {
-        x[i] = rand() % 10;
+        x[i] = rand() % 1000;
     }
     return;
 }
@@ -26,7 +26,7 @@ int main()
 {
     srand(0);
     int x[1024];
-    int n = 5;
+    int n = 1000;
     rand_array(x, n);
     print_array(x, n);
 
@@ -41,11 +41,12 @@ int main()
                 x[i] = x[i + 1];
                 x[i + 1] = t;
             }
-            std::cout << i << ": ";
-            print_array(x, n);
+            //std::cout << i << ": ";
+            //print_array(x, n);
         }
-        std::cout << '\n';
+        //std::cout << '\n';
     }
+    print_array(x, n);
 
     return 0;
 }
