@@ -22,15 +22,9 @@ void print_array(int x[], int n)
     std::cout << '\n';
 }
 
-int main()
+// bubblesort on x[0] up to x[n - 1]
+void bubblesort(int x[100000], int n)
 {
-    srand(0);
-    int x[1024];
-    int n = 1000;
-    rand_array(x, n);
-    print_array(x, n);
-
-    // bubblesort
     for (int j = n - 2; j >= 0; --j)
     {
         for (int i = 0; i <= j; ++i)
@@ -46,7 +40,19 @@ int main()
         }
         //std::cout << '\n';
     }
+    return;
+}
+
+int main()
+{
+    srand(0);
+    int x[1000000];
+    int n = 10;
+    rand_array(x, n);
+    print_array(x, n);
+    bubblesort(x, n);
     print_array(x, n);
 
+    // bin search 
     return 0;
 }
