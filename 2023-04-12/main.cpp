@@ -1,6 +1,8 @@
 #include <iostream>
+#include <cstring>
 
 void capitalize(char s[1024]); // function prototype
+int mystrlen(char s[1024]);
 
 int main()
 {
@@ -60,31 +62,37 @@ int main()
     // std::cout << s[10] << '\n';
 
     char s[1024] = {'h', 'e', 'l', 'l', 'o', '\0', 'A', 'B' ,'C', '\0', '$'};
+    std::cout << "s:" << s << '\n';
+    std::cout << mystrlen(s) << '\n';
+    capitalize(s);
+    std::cout << "s:" << s << '\n';
+    
     return 0;
 }
 
 void capitalize(char s[1024])
 {
     int i = 0;
-    while (s[i] != '\0')
+    //while (s[i] != '\0')
+    for (int i = 0; i < strlen(s); ++i)
     {
         if ('a' <= s[i] && s[i] <= 'z')
         {
             s[i] = s[i] - 'a' + 'A';
         }
-        ++i;
+        //++i;
         //std::cout << i << '[' << s << ']' << '\n';
     }
     return;
 }
 
-int mystrlen(char s[1024])
+int mystrlen(char s[])
 {
     int i = 0;
     while (s[i] != '\0')
     {
         ++i;
-        std::cout << i << '\n';
+//        std::cout << i << '\n';
     }
     return i;
 }
