@@ -43,19 +43,20 @@ int main()
     //     std::cout << s[i] << '\n';
     // }
 
-    // // capitalize
-    // for (int i = 0; i < 10; ++i)
-    // {
-    //     if ('a' <= s[i] && s[i] <= 'z')
-    //     {
-    //         s[i] = s[i] - 'a' + 'A';
-    //     }
-    // }
-    // std::cout << s << '\n';
-
-    char s[1024] = {'h', 'e', 'l', 'l', 'o', '\0', 'w', 'o', 'r', 'l', 'd'};
+    // capitalize
+    char s[1024]="abcdefghijkl"; // {'a','b','c','d','e','f','g','h','i','j','k','l','\0','A','B','C'};
+    for (int i = 0; i < 10; ++i)
+    {
+        if ('a' <= s[i] && s[i] <= 'z')
+        {
+            s[i] = s[i] - 'a' + 'A';
+        }
+    }
     std::cout << s << '\n';
-    std::cout << s[10] << '\n';
+
+    // char s[1024] = {'h', 'e', 'l', 'l', 'o', '\0', 'w', 'o', 'r', 'l', 'd'};
+    // std::cout << s << '\n';
+    // std::cout << s[10] << '\n';
     
     return 0;
 }
