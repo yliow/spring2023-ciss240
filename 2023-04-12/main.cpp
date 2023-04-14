@@ -1,5 +1,7 @@
 #include <iostream>
 
+void capitalize(char s[1024]); // function prototype
+
 int main()
 {
     // char c;
@@ -44,21 +46,45 @@ int main()
     // }
 
     // capitalize
-    char s[1024]="abcdefghijkl"; // {'a','b','c','d','e','f','g','h','i','j','k','l','\0','A','B','C'};
-    for (int i = 0; i < 10; ++i)
+    // char s[1024]="abcdefghijkl"; // {'a','b','c','d','e','f','g','h','i','j','k','l','\0','A','B','C'};
+    // capitalize(s);
+    // std::cout << s << '\n';
+
+    // for (int i = 0; i < 15; ++i)
+    // {
+    //     std::cout << '[' << s[i] << "] " << int(s[i]) << '\n';
+    // }
+
+    // char s[1024] = {'h', 'e', 'l', 'l', 'o', '\0', 'w', 'o', 'r', 'l', 'd'};
+    // std::cout << s << '\n';
+    // std::cout << s[10] << '\n';
+
+    char s[1024] = {'h', 'e', 'l', 'l', 'o', '\0', 'A', 'B' ,'C', '\0', '$'};
+    return 0;
+}
+
+void capitalize(char s[1024])
+{
+    int i = 0;
+    while (s[i] != '\0')
     {
         if ('a' <= s[i] && s[i] <= 'z')
         {
             s[i] = s[i] - 'a' + 'A';
         }
+        ++i;
+        //std::cout << i << '[' << s << ']' << '\n';
     }
-    std::cout << s << '\n';
-
-    // char s[1024] = {'h', 'e', 'l', 'l', 'o', '\0', 'w', 'o', 'r', 'l', 'd'};
-    // std::cout << s << '\n';
-    // std::cout << s[10] << '\n';
-    
-    return 0;
+    return;
 }
 
-
+int mystrlen(char s[1024])
+{
+    int i = 0;
+    while (s[i] != '\0')
+    {
+        ++i;
+        std::cout << i << '\n';
+    }
+    return i;
+}
