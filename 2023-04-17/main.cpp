@@ -1,5 +1,7 @@
 #include <iostream>
 
+void print_menu();
+
 //int A;
 
 int square(int x)
@@ -52,5 +54,16 @@ int main()
     // int y = 0;
     // y = return_42();
     // std::cout << y << '\n';
+
+    print_menu();
     return 0;
+}
+
+void print_menu()
+{
+    std::cout << "welcome to ttt v 0.1\n"
+              << "by y.liow\n"
+              << "sent donations to yliow@ccis.edu\n"
+              << "[p] play game\n"
+              << "[?] help\n";
 }
