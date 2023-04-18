@@ -38,14 +38,17 @@ void play()
         }
     }
     // print board
+    std::cout << "+-+-+-+\n";
     for (int r = 0; r < 3; ++r)
     {
+        std::cout << '|';
         for (int c = 0; c < 3; ++c)
         {
             std::cout << board[r][c] << '|';
         }
+        std::cout << '\n';
+        std::cout << "+-+-+-+\n";
     }
-
 }
 
 void help()
