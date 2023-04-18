@@ -28,13 +28,24 @@ int main()
 void play()
 {
     char board[3][3];
+    // initializing the board
     for (int r = 0; r < 3; ++r)
     {
         for (int c = 0; c < 3; ++c)
         {
-            std::cout << r << ',' << c << '\n';
+            //std::cout << r << ',' << c << '\n';
+            board[r][c] = ' ';
         }
     }
+    // print board
+    for (int r = 0; r < 3; ++r)
+    {
+        for (int c = 0; c < 3; ++c)
+        {
+            std::cout << board[r][c] << '|';
+        }
+    }
+
 }
 
 void help()
