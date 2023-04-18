@@ -27,7 +27,14 @@ int main()
 
 void play()
 {
-    std::cout << "play() ... TODO\n";
+    char board[3][3];
+    for (int r = 0; r < 3; ++r)
+    {
+        for (int c = 0; c < 3; ++c)
+        {
+            std::cout << r << ',' << c << '\n';
+        }
+    }
 }
 
 void help()
