@@ -4,6 +4,8 @@ const int N = 3;
 void print_menu();
 void play();
 void help();
+void initialize(char board[N][N]);
+void print(char board[N][N]);
 
 // void zero_out(int i)
 // {
@@ -52,19 +54,21 @@ int main()
     return 0;
 }
 
-void play()
+// initializing the board
+void initialize(char board[N][N])
 {
-    char board[N][N];
-    // initializing the board
     for (int r = 0; r < N; ++r)
     {
         for (int c = 0; c < N; ++c)
         {
-            //std::cout << r << ',' << c << '\n';
             board[r][c] = ' ';
         }
     }
-    // print board
+}
+
+// print board
+void print(char board[N][N])
+{
     std::cout << '+';
     for (int c = 0; c < N; ++c)
     {
@@ -85,6 +89,21 @@ void play()
             std::cout << "-+";
         }
         std::cout << '\n';
+    }
+}
+
+void play()
+{
+    char board[N][N];
+    char turn = 'X';
+    initialize(board);
+
+    while (1)
+    {
+        print(board);
+        std::cout << "Player " << turn << " to move. Enter row and column. ";
+        int r, c;
+        std::cin >> r >> c;
     }
 }
 
