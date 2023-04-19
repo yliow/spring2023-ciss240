@@ -6,6 +6,7 @@ void play();
 void help();
 void initialize(char board[N][N]);
 void print(char board[N][N]);
+void toggle_turn(char & turn);
 
 // void zero_out(int i)
 // {
@@ -104,7 +105,13 @@ void play()
         std::cout << "Player " << turn << " to move. Enter row and column. ";
         int r, c;
         std::cin >> r >> c;
+        toggle_turn(turn);
     }
+}
+
+void toggle_turn(char & turn)
+{
+    turn = (turn == 'X' ? 'O' : 'X');
 }
 
 void help()
