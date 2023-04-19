@@ -104,8 +104,14 @@ void play()
         print(board);
         std::cout << "Player " << turn << " to move. Enter row and column. ";
         int r, c;
-        std::cin >> r >> c;
-        board[r][c] = turn;
+
+        get_move(board, r, c)
+        // std::cin >> r >> c;
+        // if (board[r][c] == ' ')
+        // {
+        //     board[r][c] = turn;
+        // }
+        
         toggle_turn(turn);
     }
 }
