@@ -105,6 +105,7 @@ void play()
         std::cout << "Player " << turn << " to move. Enter row and column. ";
         int r, c;
         std::cin >> r >> c;
+        board[r][c] = turn;
         toggle_turn(turn);
     }
 }
