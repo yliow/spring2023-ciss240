@@ -111,7 +111,7 @@ void play()
         std::cout << "Player " << turn << " to move. Enter row and column. ";
         int r, c;
 
-        get_move(board, r, c)
+        get_move(board, r, c);
         // if (board[r][c] == ' ')
         // {
         //     board[r][c] = turn;
