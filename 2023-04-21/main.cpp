@@ -8,35 +8,14 @@ void initialize(char board[N][N]);
 void print(char board[N][N]);
 void toggle_turn(char & turn);
 void get_move(char board[N][N], int & r, int & c);
-
-// void zero_out(int i)
-// {
-//     i = 0;
-// }
-// void zero_out(int & i)
-// {
-//     i = 0;
-// }
-void zero_out(int x[])
-{
-    x[0] = 0;
-}
+bool player_wins(char board[N][N], int r, int c);
+bool player_wins_by_row(char board[N][N], char turn, int r);
+bool player_wins_by_column(char board[N][N], char turn, int c);
+bool player_wins_by_diagonal(char board[N][N], char turn, int r, int c);
+bool board_full(char board[N][N]);
 
 int main()
 {
-    // //int i = 42;
-    // int i[10] = {42, 42, 42, 42, 42, 42, 42, 42, 42, 42};
-    // //zero_out(i);
-    // // i[0] is 0?
-    // //std::cout << i[0] << '\n';
-    // int & x = i[0];
-    // std::cout << "i[0]:" << i[0] << '\n';
-    // std::cout << "x:" << x << '\n';
-    // zero_out(i);
-    // std::cout << "i[0]:" << i[0] << '\n';
-    // std::cout << "x:" << x << '\n';
-    // return 0;
-    
     print_menu();
     char option[1024];
     std::cout << "option? ";
@@ -94,9 +73,102 @@ void print(char board[N][N])
     }
 }
 
-void get_move(char board[N][N], int & r, int & c)
+void get_move(char board[N][N], char turn, int & r, int & c)
 {
-    std::cin >> r >> c;
+    while (1)
+    {
+        std::cout << "Player " << turn << " to move. Enter row and column. ";
+        std::cin >> r >> c;
+        if (0 <= r && r < N && 0 <= c && c < N && board[r][c] == ' ')
+        {
+            return;
+        }
+        std::cout << "invalid move!!! try again!!!\n";
+    }
+}
+
+bool player_wins_by_row(char board[N][N], char turn, int r)
+{
+    for (int i = 0; i < N; ++i)
+    {
+        if (board[r][i] != turn)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool player_wins_by_column(char board[N][N], char turn, int c)
+{
+    for (int i = 0; i < N; ++i)
+    {
+        if (board[i][c] != turn)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool player_wins_by_diagonal(char board[N][N], char turn, int r, int c)
+{
+    if (r == c)
+    {
+        // top-left to bottom-right diagonal
+        //       c
+        //   ? x x x
+        //   x ? x x
+        // r x x ? x
+        //   x x x ?
+        for (int i = 0; i < N; ++i)
+        {
+            if (board[i][i] != turn)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    if (r + c == N - 1)
+    {
+        // top-left to bottom-right diagonal
+        //       c
+        //   x x x ?
+        // r x x ? x
+        //   x ? x x
+        //   ? x x x
+        for (int i = 0; i < N; ++i)
+        {
+            if (board[i][N - 1 - i] != turn)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    return false;
+}
+
+bool player_wins(char board[N][N], int r, int c)
+{
+    char turn = board[r][c];
+    if (player_wins_by_row(board, turn, r)) return true;
+    if (player_wins_by_column(board, turn, r)) return true;
+    if (player_wins_by_diagonal(board, turn, r, c)) return true;
+    return false;
+}
+
+bool board_full(char board[N][N])
+{
+    for (int r = 0; r < N; ++r)
+    {
+        for (int c = 0; c < N; ++c)
+        {
+            if (board[r][c] == ' ') return false;
+        }
+    }
+    return true;
 }
 
 void play()
@@ -104,20 +176,35 @@ void play()
     char board[N][N];
     char turn = 'X';
     initialize(board);
-
+    char winner = ' '; // 'X', 'O', or ' ' (draw)
     while (1)
     {
         print(board);
-        std::cout << "Player " << turn << " to move. Enter row and column. ";
         int r, c;
 
-        get_move(board, r, c);
-        // if (board[r][c] == ' ')
-        // {
-        //     board[r][c] = turn;
-        // }
-        
+        get_move(board, turn, r, c);
+        board[r][c] = turn;
+        if (player_wins(board, r, c))
+        {
+            winner = turn;
+            break;
+        }
+        if (board_full(board))
+        {
+            winner = ' ';
+            break;
+        }
         toggle_turn(turn);
+    }
+    
+    print(board);
+    if (winner == ' ')
+    {
+        std::cout << "It's a draw!!!\n";    
+    }
+    else
+    {
+        std::cout << "Player " << winner << " wins!!!\n";
     }
 }
 
@@ -140,22 +227,3 @@ void print_menu()
               << "[?] help\n"
               << "[q] quit\n";
 }
-
-// void swap(int & i, int & j);
-
-// int main()
-// {
-//     int i = 0, j = 1;
-//     swap(i, j);
-//     std::cout << i << ' ' << j << '\n';
-    
-//     return 0;
-// }
-
-// // swap
-// void swap(int & i, int & j)
-// {
-//     int t = i;
-//     i = j;
-//     j = t;
-// }
